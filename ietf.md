@@ -10,7 +10,7 @@ List of IETF documents
 ---
 
 ### RFCs
-{% bibliography --file rfcs %}
+<!-- {% bibliography --file rfcs %}
 
 ---
 
@@ -21,6 +21,6 @@ List of IETF documents
 
 #### Expired/Replaced Drafts
 {% bibliography --file staledrafts %}
-
+-->
 
 

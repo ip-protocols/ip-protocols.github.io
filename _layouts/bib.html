@@ -1,0 +1,194 @@
+---
+---
+
+<!--
+v6 // Tue Feb  6 23:11:08 CET 2018
+	-basically one each day; just dicovered that any garbage here
+	(comments, white spaces, etc.) gets rendered in the final HTML	
+v1 // Wed Jan 31 01:31:03 CET 2018
+
+this bib is for my own publications.
+basically redoing the format by hand.... looks nice though!
+
+usage:
+1) in _config.yml
+	scholar:
+  	[...]
+  		bibliography_template: bib
+
+2) however, from:	
+	https://github.com/inukshuk/jekyll-scholar#bibliography-template
+	
+	""You can also override the default bibliography template, by passing 
+	the --template or -T option parameter to the bibliography tag.""
+
+  -->
+
+{% assign badgeWidth = "80px" %}
+
+
+<!--abbr><strong><a name="{{key | regex: '^DR:', '' }}"></a>[{{key | regex: '^DR:', '' }}]</strong></abbr>-->
+<!-- First Print Author -->
+<b>{{ entry.author }},</b> 
+
+<!--Second the Title as a link if available-->
+{% if entry.howpublished %} 
+	<em><a href="{{ entry.howpublished }}" > {{ entry.title }}, </a></em> 
+{% else %}
+    <em>{{ entry.title }},</em>
+{% endif %}	
+
+<!-- Additional infos depending on type -->
+<emph>
+{% if entry.type == "article" %}
+	{% if entry.journal %} In {{ entry.journal }}, {% endif %}	   
+	{% if entry.volume  %} Vol. {{ entry.volume }}, {% endif %}	   
+	{% if entry.number  %} No. {{ entry.number }}, {% endif %}	   
+	{% if entry.pages   %} pp.{{ entry.pages }}, {% endif %}	   
+
+{% elsif entry.type == "inbook" %}
+	{% if entry.journal %} In {{ entry.booktitle }}, {% endif %}	   
+	{% if entry.volume  %} Vol. {{ entry.volume }}, {% endif %}	   
+	{% if entry.number  %} No. {{ entry.number }}, {% endif %}	   
+	{% if entry.pages   %} pp.{{ entry.pages }}, {% endif %}	   
+	
+{% elsif entry.type == "inproceedings" %}
+	{% if entry.booktitle %}   {{ entry.booktitle }} {% endif %}	   
+
+{% elsif entry.type == "incollection" %}
+	{% if entry.booktitle %}   {{ entry.booktitle }} {% endif %}	   
+
+{% elsif entry.type == "Talk" %}
+	{% if entry.institution %}    
+		{% if entry.url %} 
+			<a href="{{ entry.url }}" > {{ entry.institution }}, </a> 
+		{% else %}
+    		{{ entry.institution }},
+		{% endif %}	
+	{% endif %}
+
+{% elsif entry.type == "TPC" %}
+	{% if entry.institution %}    
+		{% if entry.url %} 
+			<a href="{{ entry.url }}" > {{ entry.institution }}, </a> 
+		{% else %}
+    		{{ entry.institution }},
+		{% endif %}	
+	{% endif %}	   
+
+	{% elsif entry.type contains "techrep" %}
+<!--	{% if entry.institution %}     
+		{{ entry.institution }} -->
+	{% if entry.howpublished %}
+		<i class="fa fa-file-pdf-o" aria-hidden="true" href="{{entry.howpublished}}"></i> 
+		<a href="{{ entry.howpublished }}" > <emph> {{ entry.institution }} </emph></a>  
+    {% else %}
+    	{{ entry.title }} 
+	{% endif %}	
+{% endif %}	   
+	
+{% elsif entry.type contains "thesis %}
+	{% if entry.institution %}     {{ entry.institution }} {% endif %}	   
+	{% if entry.school %}          {{ entry.school }}      {% endif %}	   
+	{% if entry.address %}         {{ entry.address }}     {% endif %}	   
+
+{% endif %}
+</emph>
+
+	{% if entry.note contains "bestpaper"  %} {% icon fa fa-star %} {% endif %}	   
+
+	{% if entry.month  %} {{ entry.month }}, {% endif %}	   
+	{% if entry.year   %} {{ entry.year }}. {% endif %}	   
+
+<!-- TEST Here Author -->
+	{% if entry.slides %}
+		<span><a href="{{ entry.slides }}">slides</a></span>
+	{% endif %}	 
+
+{% if entry.doi %} DOI {{ entry.doi }} {% endif %}	   
+
+
+<!--
+<span class="badge badge-pill badge-primary">Primary</span>
+<span class="badge badge-pill badge-secondary">Secondary</span>
+<span class="badge badge-pill badge-success">Success</span>
+<span class="badge badge-pill badge-danger">Danger</span>
+<span class="badge badge-pill badge-warning">Warning</span>
+<span class="badge badge-pill badge-info">Info</span>
+<span class="badge badge-pill badge-light">Light</span>
+<span class="badge badge-pill badge-dark">Dark</span>
+-->
+
+
+
+<!--
+{% if entry.abstract %}
+<button data-toggle="collapse" data-target="{{key | regex: '^DR:', '' }}">Abstract</button>
+<div id="{{key | regex: '^DR:', '' }}" class="collapse">
+<p>{{ entry.abstract }}</p> 
+</div>
+{% endif %}
+-->
+
+{% if entry.type == "article" %}
+	<span class="badge badge-pill btn-secondary" style="width: {{ badgeWidth }}">journal</span>
+
+{% elsif entry.type == "inbook" %}
+	<span class="badge badge-pill btn-secondary" style="width: {{ badgeWidth }}">bookch</span>
+
+{% elsif entry.type == "inproceedings" %}
+	<span class="badge badge-pill btn-success" style="width: {{ badgeWidth }}">conference</span>
+
+{% elsif entry.key contains "PATENT" %}
+	<span class="badge badge-pill btn-danger " style="width: {{ badgeWidth }}">patent</span>
+
+{% elsif entry.key contains "PCT" %}
+	<span class="badge badge-pill btn-danger " style="width: {{ badgeWidth }}">patent</span>
+
+{% elsif entry.type contains "theses" %}
+	<span class="badge badge-pill btn-default " style="width: {{ badgeWidth }}">thesis</span>
+	
+{% elsif entry.type contains "techrep" %}
+	<span class="badge badge-pill btn-primary" style="width: {{ badgeWidth }}">tech.rep.</span>
+
+{% endif %} 
+
+{% if entry.note contains "bestpaper"  %}
+	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {% icon fa fa-star %}Award{% icon fa fa-star %} </span>
+{% endif %}	   
+
+{% if entry.note contains "REPLACED"  %}
+	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
+{% endif %}	   
+
+
+{% if entry.note contains "EXPIRED"  %}
+	<span class="label badge-pill label-info" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
+{% endif %}	   
+
+{% if entry.note contains "Invited"  %}
+	<span class="label badge-pill label-info" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
+{% endif %}	   
+
+{% if entry.note contains "TPC"  %}
+	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
+{% endif %}	   
+
+
+<!-- Abstract if available -->
+{% if entry.abstract %}
+<button class="btn badge btn-default btn-xs" data-toggle="collapse" data-target="#{{key | regex: '^DR:', 'Abstract-' }}">Abstract<span class="caret"></span></button>
+{% endif %}
+
+<!-- {% if entry.bibtex %}
+<button class="btn badge btn-default btn-xs" data-toggle="collapse" data-target="#{{key | regex: '^DR:', 'BibTeX-' }}">Bibtex<span class="caret"></span></button>
+{% endif %} -->
+
+
+
+<div id="{{key | regex: '^DR:', 'Abstract-' }}" class="collapse well"> {{ entry.abstract }}  </div>
+<div id="{{key | regex: '^DR:', 'BibTeX-' }}" class="collapse"> <pre>{{ entry.bibtex }}</pre>  </div>
+
+<!-- works but it's too drastic.... | regex: 'note =.*,', ''  ...filter from bibtex2latex.pl -->
+
+

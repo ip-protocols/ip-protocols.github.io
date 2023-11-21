@@ -5,9 +5,10 @@ subtitle: Standardization Activities
 ---
 
 
-# IETF activities
+# IETF DDD activities
 List of IETF documents
 ---
 
 ### RFCs
 
+{% bibliography --file rfcs %}

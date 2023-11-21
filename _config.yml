@@ -291,6 +291,15 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
+plugins_dir: ['_plugins']
+scholar:
+  order: descending
+  bibliography_list_tag: ul
+  style: assets/papers/ieee-with-url.csl  
+  bibliography_template: bib
+  replace_strings: true
+
+
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
 

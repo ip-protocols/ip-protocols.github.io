@@ -38,6 +38,15 @@ usage:
     <em>{{ entry.title }},</em>
 {% endif %}	
 
+<!--Second the Title as a link if available-->
+{% if entry.type == "Internet-Draft" %} 
+	<em><a href="{{ entry.url }}" > {{ entry.title }}, </a></em> 
+{% elsif entry.type == "RFC" %}
+	<em><a href="{{ entry.url }}" > {{ entry.title }}, </a></em> 
+{% else %}
+    <em>{{ entry.title }},</em>
+{% endif %}	
+
 <!-- Additional infos depending on type -->
 <emph>
 {% if entry.type == "article" %}
@@ -180,9 +189,9 @@ usage:
 
 
 
-<div id="{{key | regex: '^DR:', 'Abstract-' }}" class="collapse well"> {{ entry.abstract }}  </div>
+<!--<div id="{{key | regex: '^DR:', 'Abstract-' }}" class="collapse well"> {{ entry.abstract }}  </div>
 <div id="{{key | regex: '^DR:', 'BibTeX-' }}" class="collapse"> <pre>{{ entry.bibtex }}</pre>  </div>
-
+-->
 <!-- works but it's too drastic.... | regex: 'note =.*,', ''  ...filter from bibtex2latex.pl -->
 
 

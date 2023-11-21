@@ -22,9 +22,7 @@ author:
 navbar-links:
   Publications: "publications"
   Standardization: "ietf"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
+  Events: "events"
   Contact: "mailto:ip-protocols@gmx.com"
 
 ################

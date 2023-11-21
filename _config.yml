@@ -287,6 +287,8 @@ exclude:
   - screenshot.png
   - docs/
 
+gems: ['jekyll/scholar'] 
+
 plugins:
   - jekyll-paginate
   - jekyll-sitemap

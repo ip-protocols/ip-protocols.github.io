@@ -1,9 +1,12 @@
 ---
 layout: page
-title: Events
+title: 
 subtitle: 
 ---
 
+# Events
+
+---
 
 ## 2023
 {% bibliography --file talks2023 %}

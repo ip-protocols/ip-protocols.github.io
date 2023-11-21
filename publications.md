@@ -4,6 +4,10 @@ title: Publications
 subtitle: 
 ---
 
+# Publications
+
+---
+
 ## 2023
 {% bibliography --file papers2023 %}
 

@@ -82,6 +82,15 @@ usage:
 		{% endif %}	
 	{% endif %}	   
 
+{% elsif entry.type == "EDITOR" %}
+	{% if entry.institution %}    
+		{% if entry.url %} 
+			<a href="{{ entry.url }}" > {{ entry.institution }}, </a> 
+		{% else %}
+    		{{ entry.institution }},
+		{% endif %}	
+	{% endif %}	 
+
 	{% elsif entry.type contains "techrep" %}
 <!--	{% if entry.institution %}     
 		{{ entry.institution }} -->
@@ -173,6 +182,10 @@ usage:
 {% if entry.note contains "TPC"  %}
 	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
 {% endif %}	   
+
+{% if entry.type contains "EDITOR"  %}
+	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
+{% endif %}	 
 
 
 <!-- Abstract if available -->

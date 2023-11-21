@@ -151,10 +151,6 @@ usage:
 
 {% endif %} 
 
-{% if entry.note contains "bestpaper"  %}
-	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {% icon fa fa-star %}Award{% icon fa fa-star %} </span>
-{% endif %}	   
-
 {% if entry.note contains "REPLACED"  %}
 	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
 {% endif %}	   

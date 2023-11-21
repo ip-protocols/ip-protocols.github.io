@@ -285,21 +285,19 @@ exclude:
   - LICENSE
   - README.md
   - screenshot.png
-  - docs/
-
-gems: ['jekyll/scholar'] 
+  - docs/ 
 
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-scholar
 
-scholar:
-  order: descending
-  bibliography_list_tag: ul
-  style: assets/papers/ieee-with-url.csl  
-  bibliography_template: bib
-  replace_strings: true
+#scholar:
+#  order: descending
+#  bibliography_list_tag: ul
+ # style: assets/papers/ieee-with-url.csl  
+ # bibliography_template: bib
+ # replace_strings: true
 
 
 # Beautiful Jekyll / Dean Attali

@@ -187,15 +187,15 @@ usage:
 	<span class="label badge-pill btn-secondary" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
 {% endif %}	 
 
+{% if entry.type contains "Talk" %}
+	<span class="badge badge-pill btn-success" style="width: {{ badgeWidth }}">Talk</span>
+{% endif %}
+
+
 
 <!-- Abstract if available -->
 {% if entry.abstract %}
 <button class="btn badge btn-default btn-xs" data-toggle="collapse" data-target="#{{key | regex: '^DR:', 'Abstract-' }}">Abstract<span class="caret"></span></button>
-{% endif %}
-
-
-{% if entry.type Contains "Talk" %}
-	<span class="badge badge-pill btn-success" style="width: {{ badgeWidth }}">Talk</span>
 {% endif %}
 
 <!-- {% if entry.bibtex %}

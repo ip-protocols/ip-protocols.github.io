@@ -1,14 +1,24 @@
 ---
 layout: page
-title: 
-subtitle: Standardization Activities
+title: Standardization 
+subtitle: 
 ---
 
 
-# IETF DDD activities
-List of IETF documents
+# IETF activities
+
 ---
 
 ### RFCs
 
 {% bibliography --file rfcs %}
+
+
+### Active Drafts
+{% bibliography --file activedrafts %}
+
+---
+
+#### Expired/Replaced Drafts
+{% bibliography --file staledrafts %}
+

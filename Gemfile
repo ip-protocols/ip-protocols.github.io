@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
 
-gemspec
+gem 'jekyll', group: :jekyll_plugins
+gem 'jekyll-scholar', group: :jekyll_plugins
 
-gem "github-pages", group: :jekyll_plugins
-gem "jekyll-include-cache", group: :jekyll_plugins
-gem "jekyll-scholar", group: :jekyll_plugins
-gem "webrick", "~> 1.7", group: :jekyll_plugins
+# enable tzinfo-data for local build
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'jekyll-paginate'

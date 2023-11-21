@@ -193,6 +193,11 @@ usage:
 <button class="btn badge btn-default btn-xs" data-toggle="collapse" data-target="#{{key | regex: '^DR:', 'Abstract-' }}">Abstract<span class="caret"></span></button>
 {% endif %}
 
+
+{% if entry.type Contains "Talk" %}
+	<span class="badge badge-pill btn-success" style="width: {{ badgeWidth }}">Talk</span>
+{% endif %}
+
 <!-- {% if entry.bibtex %}
 <button class="btn badge btn-default btn-xs" data-toggle="collapse" data-target="#{{key | regex: '^DR:', 'BibTeX-' }}">Bibtex<span class="caret"></span></button>
 {% endif %}-->

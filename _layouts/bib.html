@@ -113,10 +113,10 @@ usage:
 	{% if entry.month  %} {{ entry.month }}, {% endif %}	   
 	{% if entry.year   %} {{ entry.year }}. {% endif %}	   
 
-<!-- TEST Here Author -->
+<!-- TEST Here Author 
 	{% if entry.slides %}
 		<span><a href="{{ entry.slides }}">slides</a></span>
-	{% endif %}	 
+	{% endif %}	 -->
 
 {% if entry.doi %} DOI {{ entry.doi }} {% endif %}	   
 
@@ -180,11 +180,11 @@ usage:
 {% endif %}	   
 
 {% if entry.note contains "TPC"  %}
-	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
+	<span class="label badge-pill btn-secondary" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
 {% endif %}	   
 
 {% if entry.type contains "EDITOR"  %}
-	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
+	<span class="label badge-pill btn-secondary" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
 {% endif %}	 
 
 

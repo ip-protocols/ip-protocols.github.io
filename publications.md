@@ -1,8 +1,15 @@
 ---
 layout: page
-title:
-subtitle: Publications
+title: Publications
+subtitle: 
 ---
 
-### TBD
+## 2023
+{% bibliography --file papers2023 %}
+
+## 2022
+{% bibliography --file papers2022 %}
+
+## 2021
+{% bibliography --file papers2021 %}
 

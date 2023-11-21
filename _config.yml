@@ -295,7 +295,7 @@ plugins:
 scholar:
 #  order: descending
   bibliography_list_tag: ul
- # style: assets/papers/ieee-with-url.csl  
+  style: assets/papers/ieee-with-url.csl  
  # bibliography_template: bib
  # replace_strings: true
 

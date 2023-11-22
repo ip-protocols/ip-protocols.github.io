@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 
-subtitle: IP Protocols Team
+title: IP Protocols Team
+subtitle: 
 ---
 
 {: .box-success}

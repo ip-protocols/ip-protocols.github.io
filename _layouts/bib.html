@@ -179,9 +179,9 @@ usage:
 	<span class="label badge-pill label-info" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
 {% endif %}	   
 
-{% if entry.note contains "TPC"  %}
-	<span class="badge badge-pill btn-secondary" style="width: {{ 100px }}"> {{entry.note}} </span>
-{% endif %}	   
+{% if entry.type == "TPC"  %}
+	<span class="label badge-pill label-warning" style="width: {{ badgeWidth }}"> {{entry.note}} </span>
+{% endif %}	     
 
 {% if entry.type contains "EDITOR"  %}
 	<span class="badge badge-pill btn-secondary" style="width: {{ badgeWidth }}"> {{entry.note}} </span>

@@ -8,6 +8,10 @@ subtitle:
 
 ---
 
+
+## 2024
+{% bibliography --file talks2024 %}
+
 ## 2023
 {% bibliography --file talks2023 %}
 {% bibliography --file ietftalks2023 %}
